@@ -7,11 +7,13 @@
                 </template>
             </van-nav-bar>
             <div class="title_menu">
-                <van-button class="smallBtn" size="small">推荐</van-button>
+                <!-- <van-button class="smallBtn" size="small">推荐</van-button> -->
                 <van-button class="smallBtn" size="small">最新</van-button>
-                <!-- <van-popover v-model:show="showPopover" :actions="actions" actions-direction="horizontal"> -->
-                <van-button class="filterBtn" size="small">筛选</van-button>
-                <!-- </van-popover> -->
+                <van-popover placement="right-start" v-model:show="showPopover" :actions="actions" actions-direction="horizontal">
+                    <template #reference>
+                        <van-button class="smallBtn" size="small">筛选</van-button>
+                    </template>
+                </van-popover>
             </div>
         </van-sticky>
         <!-- 帖子 -->
@@ -25,6 +27,7 @@
 
 <script>
 import index_List from './module/index_List'
+import { ref } from 'vue';
 
 export default {
     name: 'main',
@@ -38,6 +41,20 @@ export default {
         this.post = this.$store.state.post
         console.log(this.$store.state.post)
     },
+    setup() {
+    const showPopover = ref(false);
+    const actions = [
+      { text: '闲聊' },
+      { text: '表白墙' },
+      { text: '寻物启事' },
+      { text: '校内新闻' },
+    ];
+
+    return {
+      actions,
+      showPopover,
+    };
+  },
 }
 </script>
 
