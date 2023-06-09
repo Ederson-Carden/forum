@@ -34,18 +34,17 @@ export default {
     },
     components: { index_List },
     created(){
-        console.log(this.$store.state.name)
-           var listtt = {
-                head: '',
-                name: "fa",
-                date: "2022/8/06",
-                content: {
-                    text: 'af',
-                    img: ''
-        }
-    }
+    //     console.log(this.$store.state.name)
+    //        var listtt = {
+    //         id: '',
+    //   username: "临时抱佛脚",
+    //   date: "2022/05/06",
+    //   text: '树大招风',
+    //   textType:'https://bpic.588ku.com/element_origin_min_pic/19/04/09/f934e2ee7054bb2cfc53b881edb5d84c.jpg',
+    //   imgs: []
+    // }
         this.post = this.$store.state.post
-        this.$store.state.post.push(listtt)
+        // this.$store.state.post.push(listtt)
         console.log(this.$store.state.post)
     }
 }
