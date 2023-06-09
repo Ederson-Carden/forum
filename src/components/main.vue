@@ -22,7 +22,7 @@
         </van-sticky>
         <!-- 帖子 -->
         <div>
-            <index_List v-for="n in post" :itemPost=n></index_List>
+            <index_List v-for="n in post" :itemPost=n @click="GotoDetail(n.id)"></index_List>
         </div>
     </div>
     <van-cell v-for="item in list" :key="item" :title="item" />
@@ -44,10 +44,12 @@ export default {
     components: { index_List },
     created() {
         this.$store.state.post = JSON.parse(localStorage.getItem("postInfo")) ? JSON.parse(localStorage.getItem("postInfo")) : this.$store.state.post
+        this.$store.state.NewContentID = localStorage.getItem("NewContentID") ?localStorage.getItem("NewContentID"): this.$store.state.NewContentID
         this.post = this.$store.state.post
         // const neww = this.post.filter(p => p.text.includes('树'))
         // console.log(neww)
         console.log(this.$store.state.post)
+        console.log(this.$store.state.NewContentID)
     },
     setup() {
         const showPopover = ref(false);
@@ -71,7 +73,10 @@ export default {
 
         };
     },
-     methods: {
+    methods: {
+        GotoDetail(value) {
+            this.$router.push({name:'detail',params: {id:value}})
+        },
     searchHandler() {
         let search = this.searchContent.toLowerCase();
 		      let newList = [];

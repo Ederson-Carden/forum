@@ -3,32 +3,30 @@
         <div class='container-content'>
             <div class='user-info'>
                 <img class='user-head' width="10"
-                    src="https://tse3-mm.cn.bing.net/th/id/OIP-C.fEdSZduT7aHQ8CxR22bnFwHaFA?w=258&h=180&c=7&r=0&o=5&pid=1.7"
+                    :src="contentInfo.userimg"
                     style="border-radius: 50%" alt="" />
                 <div class='user-name-time'>
-                    <div class='user-name'>ikun</div>
-                    <div class='user-publish-time'>2023/6/9 16:25:08</div>
+                    <div class='user-name'>{{contentInfo.username}}</div>
+                    <div class='user-publish-time'>{{contentInfo.pubTime}}</div>
                 </div>
             </div>
-            <div class='content'>
-                <!-- 显示文本 -->
-                <div v-if="true">
-                    <text class='content-text'>我ikun最强</text>
-                </div>
-                <!-- 显示图片 -->
-                <div v-if="true">
-                </div>
-                <!-- 显示文本 -->
-                <div v-else>
-                    <text class='content-text'>临时抱佛脚</text>
+            <div class="content" >
+                 <!-- 显示文本 -->
+                    <div class='content-text'>{{contentInfo.text}}</div>
+                    <!-- 显示图片 -->
+                    <div class="content-scroll">
+                    <div v-for="imgss in contentInfo.imgs" >
+                        <img class='content-img'
+                        :src=imgss>
+                    </div>
                 </div>
             </div>
         </div>
         <!-- 显示回复列表 -->
         <div class='replay_content' v-if="true">
             <text class='tip-text'
-                style="width: 750rpx; height: 40rpx; display: flex; box-sizing: border-box; left: -10rpx; top: -18rpx; position: relative">----以下是回复内容----</text>
-            <div class="blockstyle"  :id="idx">
+                style="width: 750rpx; height: 40rpx; display: flex; box-sizing: border-box; left: -10rpx; top: -18rpx; position: relative">-------------------------以下是回复内容-------------------------</text>
+            <div class="blockstyle" >
                 <div class='user-info' style="width: 540rpx; height: 66rpx; display: flex; box-sizing: border-box">
                     <img class='user-head'
                         src="https://img0.baidu.com/it/u=4196418831,3741244744&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"
@@ -41,7 +39,7 @@
                 <text
                     style="margin: -26px 48px; position: relative; left: 72rpx; top: 6rpx; width: 653rpx; display: block; background-color: rgb(241, 234, 224); word-break:break-word;box-sizing: border-box">泰裤辣</text>
             </div>
-            <div class="blockstyle"  :id="idx">
+            <div class="blockstyle" >
                 <div class='user-info' style="width: 540rpx; height: 66rpx; display: flex; box-sizing: border-box">
                     <img class='user-head'
                         src="https://img1.baidu.com/it/u=1240466764,3606188766&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"
@@ -54,7 +52,7 @@
                 <text
                     style="margin: -26px 48px; position: relative; left: 72rpx; top: 6rpx; width: 653rpx; display: block; background-color: rgb(241, 234, 224); word-break:break-word;box-sizing: border-box">哈哈哈哈哈</text>
             </div>
-            <div class="blockstyle"  :id="idx">
+            <div class="blockstyle" >
                 <div class='user-info' style="width: 540rpx; height: 66rpx; display: flex; box-sizing: border-box">
                     <img class='user-head'
                         src="https://img1.baidu.com/it/u=3533698366,4262741630&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"
@@ -67,7 +65,7 @@
                 <text
                     style="margin: -26px 48px; position: relative; left: 72rpx; top: 6rpx; width: 653rpx; display: block; background-color: rgb(241, 234, 224); word-break:break-word;box-sizing: border-box">加油加油</text>
             </div>
-            <div class="blockstyle"  :id="idx">
+            <div class="blockstyle">
                 <div class='user-info' style="width: 540rpx; height: 66rpx; display: flex; box-sizing: border-box">
                     <img class='user-head'
                         src="https://img2.baidu.com/it/u=2884499993,1715100712&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"
@@ -89,15 +87,19 @@
 </template>
 
 <script>
-
-
 export default {
     name: 'detail',
-    data() {
+    data(){
         return {
-
+            contentInfo:{}
         }
     },
+    mounted(){
+        console.log(this.$store.state.post)
+        this.contentInfo = this.$store.state.post.filter(item => item.id == this.$route.params.id)[0]
+        console.log(this.contentInfo)
+        console.log(this.contentInfo.id)
+    }
 }
 </script>
 
@@ -164,7 +166,7 @@ export default {
 
 .content-scroll {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
 }
 
@@ -175,7 +177,8 @@ export default {
 }
 
 .content-img {
-    min-height: 300px;
+    width: 100px;
+    height: 100px;
     margin-left: 10px;
     margin-top: 10px;
     background-color: #999;

@@ -2,8 +2,9 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    NewContentID:'3',
     post: [{
-      id: '',
+      id: '1',
       username: "临时抱佛脚",
       userimg:"https://tse3-mm.cn.bing.net/th/id/OIP-C.fEdSZduT7aHQ8CxR22bnFwHaFA?w=258&h=180&c=7&r=0&o=5&pid=1.7",
       pubTime: "2023/5/3 10:24:16",
@@ -13,7 +14,7 @@ export default createStore({
       imgs: ["https://tse3-mm.cn.bing.net/th/id/OIP-C.fEdSZduT7aHQ8CxR22bnFwHaFA?w=258&h=180&c=7&r=0&o=5&pid=1.7",]
     },
     {
-      id: '',
+      id: '2',
       username: "dad",
       userimg:"https://tse3-mm.cn.bing.net/th/id/OIP-C.fEdSZduT7aHQ8CxR22bnFwHaFA?w=258&h=180&c=7&r=0&o=5&pid=1.7",
       pubTime: "2023/6/9 17:24:16",

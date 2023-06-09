@@ -59,11 +59,14 @@ export default {
         onSubmit(values) {
             // console.log('submit', values);
             this.contentDetail.pubTime = this.getLocalTime()
+            this.contentDetail.id = this.$store.state.NewContentID
             //从upload组件中导入
             this.getimages()
             this.$store.state.post.push(this.contentDetail)
+            this.$store.state.NewContentID = this.$store.state.NewContentID +1
             //存入本地
-            localStorage.setItem("postInfo",JSON.stringify(this.$store.state.post))
+            localStorage.setItem("postInfo", JSON.stringify(this.$store.state.post))
+            localStorage.setItem("NewContentID", this.$store.state.NewContentID)
             this.$router.push("/home/main")
         },
         onConfirm({ selectedOptions }) {
