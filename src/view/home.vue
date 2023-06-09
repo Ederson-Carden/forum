@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import bottom from '../components/module/bottom.vue';
+import bottom from '../components/bottom.vue';
 export default {
     name: 'home',
     data() {
