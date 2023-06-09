@@ -35,6 +35,7 @@ export default {
                 userimg:'',
                 pubTime: "",
                 textType: '',
+                textTypeName: '',
                 imgs: [  ]
             },
             columns: [
@@ -58,8 +59,10 @@ export default {
         onSubmit(values) {
             // console.log('submit', values);
             this.contentDetail.pubTime = this.getLocalTime()
+            //从upload组件中导入
             this.getimages()
             this.$store.state.post.push(this.contentDetail)
+            //存入本地
             localStorage.setItem("postInfo",JSON.stringify(this.$store.state.post))
             this.$router.push("/home/main")
         },
@@ -67,6 +70,8 @@ export default {
             console.log(selectedOptions[0]?.text)
             //赋值链接
             this.contentDetail.textType = selectedOptions[0]?.value;
+            //传输帖子内容
+            this.contentDetail.textTypeName = selectedOptions[0]?.text;
             //赋值内容
             this.textTypeText = selectedOptions[0]?.text;
             console.log(this.contentDetail)
