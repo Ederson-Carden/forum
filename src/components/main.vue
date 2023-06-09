@@ -17,6 +17,8 @@
             <index_List v-for="n in post" :itemPost=n></index_List>
         </div>
     </div>
+    <van-cell v-for="item in list" :key="item" :title="item" />
+<van-back-top />
 </template>
 
 <script>
@@ -27,27 +29,29 @@ export default {
     data() {
         return {
             active: 0,
-            post: [
-
-            ]
+            post: []
         }
     },
     components: { index_List },
-    created(){
+    created() {
         console.log(this.$store.state.name)
-           var listtt = {
-                head: '',
-                name: "fa",
-                date: "2022/8/06",
-                content: {
-                    text: 'af',
-                    img: ''
+        var listtt = {
+            head: '',
+            name: "fa",
+            date: "2022/8/06",
+            content: {
+                text: 'af',
+                img: ''
+            }
         }
-    }
         this.post = this.$store.state.post
         this.$store.state.post.push(listtt)
         console.log(this.$store.state.post)
-    }
+    },
+//     setup() {
+//     const list = [...Array(50).keys()];
+//     return { list };
+//   },
 }
 </script>
 
@@ -75,6 +79,5 @@ export default {
 
 .title_menu {
     background: #fff;
-    height: 3rem;
 }
 </style>

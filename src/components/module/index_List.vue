@@ -68,7 +68,7 @@ export default {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 16px 16px;
+    padding: 10px 10px;
     margin: 0 auto;
 }
 
