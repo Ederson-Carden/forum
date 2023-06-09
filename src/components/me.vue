@@ -7,33 +7,33 @@
         <van-row justify="center" @click="showMe">
             <h2>{{ $store.state.userInfo.username }}</h2>
         </van-row>
-        <van-row justify="center">
+        <van-row justify="center" style="margin-top: -6.6%;">
         <h2>练习时长：{{ $store.state.userInfo.age }}年</h2>
         </van-row>
-        <van-popup v-model:show="showM" :style="{ height: '180px' }" round position="bottom" closeable close-icon="close">
+        <van-popup v-model:show="showM" :style="{ height: '70%' }" round position="bottom" closeable close-icon="close">
             <p>{{ $store.state.userInfo.introduction }}</p>
         </van-popup>
-        <van-cell title="我的贴子" is-link @click="showPopup" />
+        <van-cell title="我的坤贴" is-link @click="showPopup" />
         <van-popup v-model:show="show" :style="{height:'70%'}" round position="bottom" closeable close-icon="close">
             <!-- 帖子 -->
             <div>
                 <index_List v-for="n in myPost" :itemPost=n></index_List>
             </div>
         </van-popup>
-        <van-cell title="我的收藏" is-link @click="showCollect"  />
+        <van-cell title="我的坤藏" is-link @click="showCollect"  />
         <van-popup v-model:show="showC" :style="{ padding: '180px' }" round position="bottom" closeable close-icon="close">
             你猜
         </van-popup>
-        <van-cell title="我的坤能" is-link @click="showCollect"  />
-        <van-popup v-model:show="showC" :style="{ padding: '180px' }" round position="bottom" closeable close-icon="close">
+        <van-cell title="我的坤能" is-link @click="showAA"  />
+        <van-popup v-model:show="showA" :style="{ padding: '180px' }" round position="bottom" closeable close-icon="close">
             你猜
         </van-popup>
-        <van-cell title="我的浏览记录" is-link @click="showCollect"  />
-        <van-popup v-model:show="showC" :style="{ padding: '180px' }" round position="bottom" closeable close-icon="close">
+        <van-cell title="我的坤史" is-link @click="showBB"  />
+        <van-popup v-model:show="showB" :style="{ padding: '180px' }" round position="bottom" closeable close-icon="close">
             你猜
         </van-popup>
-        <van-cell title="我的钱包" is-link @click="showCollect"  />
-        <van-popup v-model:show="showC" :style="{ padding: '180px' }" round position="bottom" closeable close-icon="close">
+        <van-cell title="我的坤包" is-link @click="showDD"  />
+        <van-popup v-model:show="showD" :style="{ padding: '180px' }" round position="bottom" closeable close-icon="close">
             你猜
         </van-popup>
         <van-cell title="退出" is-link @click="back()"/>
@@ -73,13 +73,31 @@ export default {
         const showCollect = () => {
             showC.value = true;
         };
+        const showA = ref(false);
+        const showAA = () => {
+            showA.value = true;
+        };
+        const showB = ref(false);
+        const showBB = () => {
+            showB.value = true;
+        };
+        const showD = ref(false);
+        const showDD = () => {
+            showD.value = true;
+        };
         return {
             show,
             showC,
             showM,
+            showA,
+            showB,
+            showD,
             showMe,
             showCollect,
             showPopup,
+            showAA,
+            showBB,
+            showDD,
 
         };
     },
