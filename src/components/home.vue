@@ -27,19 +27,36 @@ export default {
     name: 'home',
     data() {
         return {
-            post: [{
-                head: '',
-                name: "临时抱佛脚",
-                date: "2022/05/06",
-                content: {
-                    text: '树大招风',
-                    img: ''
-                },
-            },
+            active: 0,
+            post: [
+            //     {
+            //     head: '',
+            //     name: "临时抱佛脚",
+            //     date: "2022/05/06",
+            //     content: {
+            //         text: '树大招风',
+            //         img: ''
+            //     },
+            // },
             ]
         }
     },
     components: { index_List },
+    created(){
+        console.log(this.$store.state.name)
+           var listtt = {
+                head: '',
+                name: "fa",
+                date: "2022/8/06",
+                content: {
+                    text: 'af',
+                    img: ''
+        }
+    }
+        this.post = this.$store.state.post
+        this.$store.state.post.push(listtt)
+        console.log(this.$store.state.post)
+    }
 }
 </script>
 
@@ -69,4 +86,8 @@ export default {
     background: #fff;
     height: 3rem;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 07ea5b500960569ea869fecf7c5685b740d848a0
 </style>
