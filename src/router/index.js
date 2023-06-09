@@ -16,12 +16,12 @@ const routes = [
     component: home,
     children: [
       {
-        path: '/main',
+        path: 'main',
         name: 'main',
         component: main
       },
       {
-        path: '/me',
+        path: 'me',
         name: 'me',
         component: me
       }

@@ -7,7 +7,7 @@
             </van-swipe-item>
         </van-swipe>
         <!--  -->
-        <van-button class="loginBtn_1" hairline size="large" type="primary" to="home">进入论坛</van-button>
+        <van-button class="loginBtn_1" hairline size="large" type="primary" to="/home/main">进入论坛</van-button>
     </div>
 </template>
   

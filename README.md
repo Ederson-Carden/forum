@@ -1,4 +1,4 @@
-# campusproject
+# Forum
 
 ## Project setup
 ```
