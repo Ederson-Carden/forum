@@ -24,9 +24,10 @@ export default createStore({
     },
     ],
     userInfo: {
-      username:"张三",
-      age: 12,
-      userimg:["https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"],
+      username:"ikun",
+      age: 2.5,
+      userimg:["https://ts1.cn.mm.bing.net/th/id/R-C.7552641df8141f6d6e35a7c6c6dbb520?rik=EOxQoRe8cIY15w&riu=http%3a%2f%2finews.gtimg.com%2fnewsapp_match%2f0%2f15103659382%2f0&ehk=02lHw6%2fSuOKZUWgGUWWCp0q0spTkUeyoDN4cY5yiCdE%3d&risl=&pid=ImgRaw&r=0"],
+      introduction:"我是练习时长两年半,个人练习生,会唱,跳,rap,还有篮球~~~~~~~,快来关注我吧！",
     }
   },
   getters: {

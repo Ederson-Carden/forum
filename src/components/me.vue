@@ -4,11 +4,17 @@
             <van-image v-for="imgss in $store.state.userInfo.userimg" style="top: 1rem;" round width="10rem" height="10rem"
                 fit="cover" position="center" :src="imgss" />
         </van-row>
-        <van-row justify="center">
+        <van-row justify="center" @click="showMe">
             <h2>{{ $store.state.userInfo.username }}</h2>
         </van-row>
+        <van-row justify="center">
+        <h2>练习时长：{{ $store.state.userInfo.age }}年</h2>
+        </van-row>
+        <van-popup v-model:show="showM" :style="{ height: '180px' }" round position="bottom" closeable close-icon="close">
+            <p>{{ $store.state.userInfo.introduction }}</p>
+        </van-popup>
         <van-cell title="我的贴子" is-link @click="showPopup" />
-        <van-popup v-model:show="show" round position="bottom" closeable close-icon="close">
+        <van-popup v-model:show="show" :style="{height:'70%'}" round position="bottom" closeable close-icon="close">
             <!-- 帖子 -->
             <div>
                 <index_List v-for="n in myPost" :itemPost=n></index_List>
@@ -18,6 +24,19 @@
         <van-popup v-model:show="showC" :style="{ padding: '180px' }" round position="bottom" closeable close-icon="close">
             你猜
         </van-popup>
+        <van-cell title="我的坤能" is-link @click="showCollect"  />
+        <van-popup v-model:show="showC" :style="{ padding: '180px' }" round position="bottom" closeable close-icon="close">
+            你猜
+        </van-popup>
+        <van-cell title="我的浏览记录" is-link @click="showCollect"  />
+        <van-popup v-model:show="showC" :style="{ padding: '180px' }" round position="bottom" closeable close-icon="close">
+            你猜
+        </van-popup>
+        <van-cell title="我的钱包" is-link @click="showCollect"  />
+        <van-popup v-model:show="showC" :style="{ padding: '180px' }" round position="bottom" closeable close-icon="close">
+            你猜
+        </van-popup>
+        <van-cell title="退出" is-link @click="back()"/>
     </div>
 </template>
 
@@ -40,6 +59,11 @@ export default {
         console.log(this.myPost)
     },
     setup() {
+        const showM = ref(false);
+        const showMe = () => {
+            showM.value = true;
+        };
+
         const show = ref(false);
         const showPopup = () => {
             show.value = true;
@@ -52,10 +76,17 @@ export default {
         return {
             show,
             showC,
+            showM,
+            showMe,
             showCollect,
             showPopup,
 
         };
+    },
+    methods:{
+        back(){
+            this.$router.push('/')
+    },
     },
 }
 // created() {
@@ -75,4 +106,6 @@ export default {
     // },
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
