@@ -60,6 +60,7 @@ export default {
             this.contentDetail.pubTime = this.getLocalTime()
             this.getimages()
             this.$store.state.post.push(this.contentDetail)
+            localStorage.setItem("postInfo",JSON.stringify(this.$store.state.post))
             this.$router.push("/home/main")
         },
         onConfirm({ selectedOptions }) {

@@ -22,7 +22,7 @@ export default {
                 { id: 3, image: '../assets/3.jpg' }
             ]
         }
-    }
+    },
 }
 </script>
   
