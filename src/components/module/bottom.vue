@@ -15,7 +15,7 @@ export default {
         }
     },
     setup(){
-        const active=ref('home');
+        const active=ref('main');
         return{active};
     }
 }
