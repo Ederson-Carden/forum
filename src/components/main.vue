@@ -30,13 +30,15 @@ export default {
     name: 'main',
     data() {
         return {
-            post: []
+            post: [],
         }
     },
     components: { index_List },
     created() {
         this.$store.state.post = JSON.parse(localStorage.getItem("postInfo")) ?JSON.parse(localStorage.getItem("postInfo"))  : this.$store.state.post
         this.post = this.$store.state.post
+        // const neww = this.post.filter(p => p.text.includes('树'))
+        // console.log(neww)
         console.log(this.$store.state.post)
     },
 }
