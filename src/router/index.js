@@ -3,7 +3,7 @@ import login from '../components/login.vue'
 import home from '../view/home.vue'
 import main from '../components/main.vue'
 import me from '../components/me.vue'
-
+import pub from '../components/pub.vue'
 const routes = [
   {
     path: '/',
@@ -23,7 +23,7 @@ const routes = [
       {
         path: 'pub',
         name: 'pub',
-        component: me
+        component: pub
       },
       {
         path: 'me',

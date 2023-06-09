@@ -9,7 +9,9 @@
             <div class="title_menu">
                 <van-button class="smallBtn" size="small">推荐</van-button>
                 <van-button class="smallBtn" size="small">最新</van-button>
+                <!-- <van-popover v-model:show="showPopover" :actions="actions" actions-direction="horizontal"> -->
                 <van-button class="filterBtn" size="small">筛选</van-button>
+                <!-- </van-popover> -->
             </div>
         </van-sticky>
         <!-- 帖子 -->
@@ -18,7 +20,7 @@
         </div>
     </div>
     <van-cell v-for="item in list" :key="item" :title="item" />
-<van-back-top />
+    <van-back-top />
 </template>
 
 <script>
@@ -28,30 +30,14 @@ export default {
     name: 'main',
     data() {
         return {
-            active: 0,
             post: []
         }
     },
     components: { index_List },
     created() {
-        console.log(this.$store.state.name)
-        var listtt = {
-            head: '',
-            name: "fa",
-            date: "2022/8/06",
-            content: {
-                text: 'af',
-                img: ''
-            }
-        }
         this.post = this.$store.state.post
-        this.$store.state.post.push(listtt)
         console.log(this.$store.state.post)
     },
-//     setup() {
-//     const list = [...Array(50).keys()];
-//     return { list };
-//   },
 }
 </script>
 

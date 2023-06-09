@@ -3,17 +3,24 @@
             <div class="container-content">
                 <div class="user-info">
                     <img class="user-head-image"
-                        src="https://tse3-mm.cn.bing.net/th/id/OIP-C.fEdSZduT7aHQ8CxR22bnFwHaFA?w=258&h=180&c=7&r=0&o=5&pid=1.7"
+                        :src="itemPost.userimg"
                         alt="">
                     <div class="user-name-time">
-                        <div class="user-name">{{itemPost.name}}</div>
-                        <div class="user-publish-time ">{{itemPost.date}}</div>
+                        <div class="user-name">{{itemPost.username}}</div>
+                        <div class="user-publish-time ">{{itemPost.pubTime}}</div>
+                    </div>
+                    <div>
+                         <img class="content-style" :src="itemPost.textType">
                     </div>
                 </div>
                 <div class="content" >
-                    <div class='content-text'>{{itemPost.content.text}}</div>
-                    <img class='content-img'
-                        src="https://tse3-mm.cn.bing.net/th/id/OIP-C.fEdSZduT7aHQ8CxR22bnFwHaFA?w=258&h=180&c=7&r=0&o=5&pid=1.7">
+                    <div class='content-text'>{{itemPost.text}}</div>
+                    <div class="content-scroll">
+                    <div v-for="imgss in itemPost.imgs" >
+                        <img class='content-img'
+                        :src=imgss>
+                    </div>
+                </div>
                 </div>
             </div>
             <div class="container-line"></div>
